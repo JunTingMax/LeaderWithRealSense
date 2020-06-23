@@ -59,12 +59,13 @@ namespace LeaderWithRealSense
             //btn_StopStreaming.Enabled = true;
 
 
+
+            //Cam = new Thread(Streaming);
+            //Cam.IsBackground = true;
+            //Cam.Start();           
             CamGrab = new Thread(Grab);
             CamGrab.IsBackground = true;
             CamGrab.Start();
-            //Cam = new Thread(Streaming);
-            //Cam.IsBackground = true;
-            //Cam.Start();
         }
 
         private void Grab()
@@ -97,8 +98,6 @@ namespace LeaderWithRealSense
             ThresholdImg.Save("ThresholdImg.bmp");
             VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();
             
-                // 在這版本請使用FindContours，早期版本有cvFindContours等等，在這版都無法使用，
-                // 由於這邊是要取得最外層的輪廓，所以第三個參數給 null，第四個參數則用 RetrType.External。
             CvInvoke.FindContours(ThresholdImg, contours, null, RetrType.External, ChainApproxMethod.ChainApproxSimple);
 
             pointList = new List<string>();
@@ -130,7 +129,7 @@ namespace LeaderWithRealSense
                     ColorImg.Draw(circlef, new Bgr(0, 0, 255), 5);
                     ColorImg.Draw(BoundingBox, new Bgr(0, 255, 0), 3);
                     
-                    // 使用 BoundingRectangle 取得框選矩形
+                    
                 }
 
 

@@ -70,7 +70,6 @@ namespace LeaderWithRealSense
         private void readData()
         {
             buffer = new byte[2048];
-            RoutePoint pointScan = null;
             while (connectFlag)
             {
 
@@ -234,12 +233,6 @@ namespace LeaderWithRealSense
                         pointNew.RX = Convert.ToDouble(temparray[4]);
                         pointNew.RY = Convert.ToDouble(temparray[5]);
                         pointNew.RZ = Convert.ToDouble(temparray[6]);
-                        //pointNew.shiftX = Convert.ToDouble(temparray[7]);
-                        //pointNew.shiftY = Convert.ToDouble(temparray[8]);
-                        //pointNew.shiftZ = Convert.ToDouble(temparray[9]);
-                        //pointNew.shiftA = Convert.ToDouble(temparray[10]);
-                        //pointNew.shiftB = Convert.ToDouble(temparray[11]);
-                        //pointNew.shiftC = Convert.ToDouble(temparray[12]);
 
                         pointScan.Next = pointNew;
                         pointNew.Prev = pointScan;

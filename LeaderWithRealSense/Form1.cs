@@ -24,11 +24,6 @@ namespace LeaderWithRealSense
                 read.Abort();
                 read = null;
             }
-            if (!btn_connect.Enabled)
-            {
-                //Cam.Abort();
-                //Cam = null;
-            }
 
         }
 
